@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="github-api">
+  <head lang="en">
+    <meta charset="UTF-8">
+    <title>Github API</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body ng-controller="GitHubController">
+
+    <form>
+      <input type="text" placeholder="Enter Github username" ng-model="searchText">
+      <button type="submit" ng-click="getUserData(searchText)">Submit</button>
+    </form>
+    <ul ng-show="showData">
+      <li>User Avatar: <br/><img ng-src="{{user.avatar_url}}"> </li><br/>
+      <li><em>{{user.name}}</em></li><br/>
+      <li>User Company: {{user.company}}</li>
+      <li>User Email: {{user.email}}</li>
+      <li>How many repos: {{user.public_repos}}</li>
+      <li>How many followers: {{user.followers}}</li>
+      <li>How many following: {{user.following}}</li>
+    </ul>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="mainCtrl.js"></script>
+  <script src="service.js"></script>
+  </body>
+</html>
